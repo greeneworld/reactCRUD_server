@@ -41,15 +41,8 @@ return [
             'provider' => 'users',
         ],
 
-        // original code by Rpz
-        // 'api' => [
-        //     'driver' => 'token',
-        //     'provider' => 'users',
-        //     'hash' => false,
-        // ],
-
         'api' => [
-            'driver' => 'passport',
+            'driver' => 'token',
             'provider' => 'users',
         ],
     ],
