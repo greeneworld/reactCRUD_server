@@ -63,22 +63,17 @@ class LoginController extends Controller
 
     public function handleProviderCallback($social)
     {   
-        // return "okay";
-        // return $social;
-        // return $social;
         if ($social == "facebook" || $social == "google" || $social == "linkedin") {
             $userSocial = Socialite::driver($social)->stateless()->user();
         } else {
             $userSocial = Socialite::driver($social)->user();           
         }
-        
         $token = $userSocial->token;
         $email = $userSocial->getEmail();
         
         $user = User::firstOrNew(['email' => $userSocial->getEmail()]);
-        return $email;
-        // return response()->json(['user'=>[$user]],200);
-        // return $user->$id;
+        $id = $user->id;
+
         if (!$user->id) {
             $user->fill(["name" => $userSocial->getName(),"password"=>bcrypt(str_random(6))]);
             $user->save();
