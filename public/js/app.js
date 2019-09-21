@@ -55448,142 +55448,145 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var Page = function (_React$Component) {
-  _inherits(Page, _React$Component);
+    _inherits(Page, _React$Component);
 
-  function Page(props) {
-    _classCallCheck(this, Page);
+    function Page(props) {
+        _classCallCheck(this, Page);
 
-    return _possibleConstructorReturn(this, (Page.__proto__ || Object.getPrototypeOf(Page)).call(this, props));
-  }
+        return _possibleConstructorReturn(this, (Page.__proto__ || Object.getPrototypeOf(Page)).call(this, props));
+    }
 
-  _createClass(Page, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var social = this.props.match.params.social;
-      var params = this.props.location.search;
-      console.log('socail=======>', social, 'params====>', params);
-      setTimeout(function () {
-        var _this2 = this;
+    _createClass(Page, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var social = this.props.match.params.social;
+            var params = this.props.location.search;
 
-        if (params && social) {
-          this.props.dispatch(__WEBPACK_IMPORTED_MODULE_3__services__["a" /* default */].socialLogin({ params: params, social: social }))
-          // .dispatch(AuthService.socialLogin({social}))
-          .catch(function (_ref) {
-            var error = _ref.error,
-                statusCode = _ref.statusCode;
+            setTimeout(function () {
+                var _this2 = this;
 
-            var responseError = {
-              isError: true,
-              code: statusCode,
-              text: error
-            };
-            _this2.setState({ responseError: responseError });
-            _this2.setState({
-              isLoading: false
-            });
-          });
+                if (params && social) {
+                    this.props.dispatch(__WEBPACK_IMPORTED_MODULE_3__services__["a" /* default */].socialLogin({ params: params, social: social })).catch(function (_ref) {
+                        var error = _ref.error,
+                            statusCode = _ref.statusCode;
+
+                        var responseError = {
+                            isError: true,
+                            code: statusCode,
+                            text: error
+                        };
+                        _this2.setState({ responseError: responseError });
+                        _this2.setState({
+                            isLoading: false
+                        });
+                    });
+                }
+            }.bind(this), 1000);
         }
-      }.bind(this), 1000);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["o" /* Segment */],
-          { inverted: true, textAlign: 'center', className: 'home-header', vertical: true },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["b" /* Container */],
-            { text: true },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["n" /* Responsive */],
-              { minWidth: 769 },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */], {
-                as: 'h2',
-                content: 'Something Cool',
-                inverted: true,
-                className: 'pretitle'
-              })
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */], {
-              as: 'h1',
-              content: 'Tagline Here',
-              inverted: true,
-              className: 'main-heading'
-            }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */], {
-              as: 'p',
-              content: 'sub heading',
-              inverted: true,
-              className: 'sub-heading'
-            }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["a" /* Button */],
-              { color: 'teal', size: 'huge', className: 'free-signup-button' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
-                { to: '/register', replace: true },
-                'Register'
-              )
-            )
-          )
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          { className: 'course-tour' },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["b" /* Container */],
-            { textAlign: 'center', style: { padding: '2em 0em' } },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */], { as: 'h3', content: 'About your company' }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'p',
-              null,
-              'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["b" /* Container */],
-            { className: 'step-container' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["n" /* Responsive */],
-              { minWidth: 992 },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["g" /* Grid */],
-                { columns: 1, padded: 'horizontally' },
+    }, {
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["g" /* Grid */].Row,
-                  null,
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["g" /* Grid */].Column,
-                    null,
+                    __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["o" /* Segment */],
+                    {
+                        inverted: true,
+                        textAlign: 'center',
+                        className: 'home-header',
+                        vertical: true
+                    },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'p',
-                      null,
-                      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem beatae ducimus eius eos fugit ipsam, nemo rem repellendus suscipit unde? Aliquam aliquid consequatur consequuntur deleniti nisi quos, ratione repudiandae sint! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod veritatis!'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'p',
-                      null,
-                      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod veritatis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod veritatis!'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      'p',
-                      null,
-                      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod veritatis!'
+                        __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["b" /* Container */],
+                        { text: true },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["n" /* Responsive */],
+                            { minWidth: 769 },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */], {
+                                as: 'h2',
+                                content: 'Something Cool',
+                                inverted: true,
+                                className: 'pretitle'
+                            })
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */], {
+                            as: 'h1',
+                            content: 'Tagline Here',
+                            inverted: true,
+                            className: 'main-heading'
+                        }),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */], {
+                            as: 'p',
+                            content: 'sub heading',
+                            inverted: true,
+                            className: 'sub-heading'
+                        }),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["a" /* Button */],
+                            { color: 'teal', size: 'huge', className: 'free-signup-button' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
+                                { to: '/register', replace: true },
+                                'Register'
+                            )
+                        )
                     )
-                  )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'course-tour' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["b" /* Container */],
+                        { textAlign: 'center', style: { padding: '2em 0em' } },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */], { as: 'h3', content: 'About your company' }),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            null,
+                            'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["b" /* Container */],
+                        { className: 'step-container' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["n" /* Responsive */],
+                            { minWidth: 992 },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["g" /* Grid */],
+                                { columns: 1, padded: 'horizontally' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["g" /* Grid */].Row,
+                                    null,
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["g" /* Grid */].Column,
+                                        null,
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'p',
+                                            null,
+                                            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem beatae ducimus eius eos fugit ipsam, nemo rem repellendus suscipit unde? Aliquam aliquid consequatur consequuntur deleniti nisi quos, ratione repudiandae sint! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod veritatis!'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'p',
+                                            null,
+                                            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod veritatis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod veritatis!'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'p',
+                                            null,
+                                            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta dolores dolorum eligendi, esse, facilis fugit hic impedit ipsam libero nisi obcaecati pariatur placeat soluta voluptatum. Aliquid officia quod veritatis!'
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
                 )
-              )
-            )
-          )
-        )
-      );
-    }
-  }]);
+            );
+        }
+    }]);
 
-  return Page;
+    return Page;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (Page);
@@ -76232,128 +76235,125 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 function login(credentials) {
-  return function (dispatch) {
-    return new Promise(function (resolve, reject) {
-      __WEBPACK_IMPORTED_MODULE_0__Http__["a" /* default */].post('api/auth/login', credentials).then(function (res) {
-        dispatch(__WEBPACK_IMPORTED_MODULE_1__store_actions__["b" /* authLogin */](res.data));
-        return resolve();
-      }).catch(function (err) {
-        var statusCode = err.response.status;
-        var data = {
-          error: null,
-          statusCode: statusCode
-        };
-        if (statusCode === 401 || statusCode === 422) {
-          // status 401 means unauthorized
-          // status 422 means unprocessable entity
-          data.error = err.response.data.message;
-        }
-        return reject(data);
-      });
-    });
-  };
+    return function (dispatch) {
+        return new Promise(function (resolve, reject) {
+            __WEBPACK_IMPORTED_MODULE_0__Http__["a" /* default */].post('api/auth/login', credentials).then(function (res) {
+                dispatch(__WEBPACK_IMPORTED_MODULE_1__store_actions__["b" /* authLogin */](res.data));
+                return resolve();
+            }).catch(function (err) {
+                var statusCode = err.response.status;
+                var data = {
+                    error: null,
+                    statusCode: statusCode
+                };
+                if (statusCode === 401 || statusCode === 422) {
+                    // status 401 means unauthorized
+                    // status 422 means unprocessable entity
+                    data.error = err.response.data.message;
+                }
+                return reject(data);
+            });
+        });
+    };
 }
 
 function socialLogin(data) {
-  console.log('data.params.===>', data.params);
-  return function (dispatch) {
-    return new Promise(function (resolve, reject) {
-      __WEBPACK_IMPORTED_MODULE_0__Http__["a" /* default */].post('../api/auth/login/' + data.social + '/callback' + data.params)
-      // Http.post(`../api/auth/login/${data.social}/callback`)
-      .then(function (res) {
-        dispatch(__WEBPACK_IMPORTED_MODULE_1__store_actions__["b" /* authLogin */](res.data));
-        return resolve();
-      }).catch(function (err) {
-        var statusCode = err.response.status;
-        var data = {
-          error: null,
-          statusCode: statusCode
-        };
-        if (statusCode === 401 || statusCode === 422) {
-          // status 401 means unauthorized
-          // status 422 means unprocessable entity
-          data.error = err.response.data.message;
-        }
-        return reject(data);
-      });
-    });
-  };
+    return function (dispatch) {
+        return new Promise(function (resolve, reject) {
+            __WEBPACK_IMPORTED_MODULE_0__Http__["a" /* default */].post('../api/auth/login/' + data.social + '/callback' + data.params).then(function (res) {
+                dispatch(__WEBPACK_IMPORTED_MODULE_1__store_actions__["b" /* authLogin */](res.data));
+                return resolve();
+            }).catch(function (err) {
+                var statusCode = err.response.status;
+                var data = {
+                    error: null,
+                    statusCode: statusCode
+                };
+                if (statusCode === 401 || statusCode === 422) {
+                    // status 401 means unauthorized
+                    // status 422 means unprocessable entity
+                    data.error = err.response.data.message;
+                }
+                return reject(data);
+            });
+        });
+    };
 }
 
 function resetPassword(credentials) {
-  return function (dispatch) {
-    return new Promise(function (resolve, reject) {
-      __WEBPACK_IMPORTED_MODULE_0__Http__["a" /* default */].post('../api/password/email', credentials).then(function (res) {
-        return resolve(res.data);
-      }).catch(function (err) {
-        var statusCode = err.response.status;
-        var data = {
-          error: null,
-          statusCode: statusCode
-        };
-        if (statusCode === 401 || statusCode === 422) {
-          // status 401 means unauthorized
-          // status 422 means unprocessable entity
-          data.error = err.response.data.message;
-        }
-        return reject(data);
-      });
-    });
-  };
+    return function (dispatch) {
+        return new Promise(function (resolve, reject) {
+            __WEBPACK_IMPORTED_MODULE_0__Http__["a" /* default */].post('../api/password/email', credentials).then(function (res) {
+                return resolve(res.data);
+            }).catch(function (err) {
+                var statusCode = err.response.status;
+                var data = {
+                    error: null,
+                    statusCode: statusCode
+                };
+                if (statusCode === 401 || statusCode === 422) {
+                    // status 401 means unauthorized
+                    // status 422 means unprocessable entity
+                    data.error = err.response.data.message;
+                }
+                return reject(data);
+            });
+        });
+    };
 }
 
 function updatePassword(credentials) {
-  return function (dispatch) {
-    return new Promise(function (resolve, reject) {
-      __WEBPACK_IMPORTED_MODULE_0__Http__["a" /* default */].post('../../api/password/reset', credentials).then(function (res) {
-        var statusCode = res.data.status;
-        if (statusCode == 202) {
-          var data = {
-            error: res.data.message,
-            statusCode: statusCode
-          };
-          return reject(data);
-        }
-        return resolve(res);
-      }).catch(function (err) {
-        var statusCode = err.response.status;
-        var data = {
-          error: null,
-          statusCode: statusCode
-        };
-        if (statusCode === 401 || statusCode === 422) {
-          // status 401 means unauthorized
-          // status 422 means unprocessable entity
-          data.error = err.response.data.message;
-        }
-        return reject(data);
-      });
-    });
-  };
+    return function (dispatch) {
+        return new Promise(function (resolve, reject) {
+            __WEBPACK_IMPORTED_MODULE_0__Http__["a" /* default */].post('../../api/password/reset', credentials).then(function (res) {
+                var statusCode = res.data.status;
+                if (statusCode == 202) {
+                    var data = {
+                        error: res.data.message,
+                        statusCode: statusCode
+                    };
+                    return reject(data);
+                }
+                return resolve(res);
+            }).catch(function (err) {
+                var statusCode = err.response.status;
+                var data = {
+                    error: null,
+                    statusCode: statusCode
+                };
+                if (statusCode === 401 || statusCode === 422) {
+                    // status 401 means unauthorized
+                    // status 422 means unprocessable entity
+                    data.error = err.response.data.message;
+                }
+                return reject(data);
+            });
+        });
+    };
 }
 
 function register(credentials) {
-  return function (dispatch) {
-    return new Promise(function (resolve, reject) {
-      __WEBPACK_IMPORTED_MODULE_0__Http__["a" /* default */].post('api/auth/register', credentials).then(function (res) {
-        return resolve(res.data);
-      }).catch(function (err) {
-        var statusCode = err.response.status;
-        var data = {
-          error: null,
-          statusCode: statusCode
-        };
-        if (statusCode === 422) {
-          Object.values(err.response.data.message).map(function (value, i) {
-            data.error = value;
-          });
-        } else if (statusCode === 400) {
-          data.error = err.response.data.message;
-        }
-        return reject(data);
-      });
-    });
-  };
+    return function (dispatch) {
+        return new Promise(function (resolve, reject) {
+            __WEBPACK_IMPORTED_MODULE_0__Http__["a" /* default */].post('api/auth/register', credentials).then(function (res) {
+                return resolve(res.data);
+            }).catch(function (err) {
+                var statusCode = err.response.status;
+                var data = {
+                    error: null,
+                    statusCode: statusCode
+                };
+                if (statusCode === 422) {
+                    Object.values(err.response.data.message).map(function (value, i) {
+                        data.error = value;
+                    });
+                } else if (statusCode === 400) {
+                    data.error = err.response.data.message;
+                }
+                return reject(data);
+            });
+        });
+    };
 }
 
 /***/ }),
@@ -76405,274 +76405,253 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var Page = function (_React$Component) {
-  _inherits(Page, _React$Component);
+    _inherits(Page, _React$Component);
 
-  function Page(props) {
-    _classCallCheck(this, Page);
+    function Page(props) {
+        _classCallCheck(this, Page);
 
-    var _this = _possibleConstructorReturn(this, (Page.__proto__ || Object.getPrototypeOf(Page)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Page.__proto__ || Object.getPrototypeOf(Page)).call(this, props));
 
-    _this.validator = new __WEBPACK_IMPORTED_MODULE_4_ree_validate__["a" /* default */]({
-      email: 'required|email',
-      password: 'required|min:6'
-    });
-
-    _this.state = {
-      credentials: {
-        email: '',
-        password: ''
-      },
-      responseError: {
-        isError: false,
-        code: '',
-        text: ''
-      },
-      isLoading: false,
-      errors: _this.validator.errors
-    };
-    _this.handleChange = _this.handleChange.bind(_this);
-    _this.handleSubmit = _this.handleSubmit.bind(_this);
-    return _this;
-  }
-
-  _createClass(Page, [{
-    key: 'handleChange',
-    value: function handleChange(event) {
-      var _this2 = this;
-
-      var name = event.target.name;
-      var value = event.target.value;
-      var errors = this.validator.errors;
-      var credentials = this.state.credentials;
-
-      credentials[name] = value;
-
-      this.validator.validate(name, value).then(function () {
-        _this2.setState({ errors: errors, credentials: credentials });
-      });
-    }
-  }, {
-    key: 'handleSubmit',
-    value: function handleSubmit(event) {
-      var _this3 = this;
-
-      event.preventDefault();
-      var credentials = this.state.credentials;
-
-      this.validator.validateAll(credentials).then(function (success) {
-        if (success) {
-          _this3.setState({
-            isLoading: true
-          });
-          _this3.submit(credentials);
-        }
-      });
-    }
-  }, {
-    key: 'submit',
-    value: function submit(credentials) {
-      var _this4 = this;
-
-      this.props.dispatch(__WEBPACK_IMPORTED_MODULE_5__services__["a" /* default */].login(credentials)).catch(function (_ref) {
-        var error = _ref.error,
-            statusCode = _ref.statusCode;
-
-        var responseError = {
-          isError: true,
-          code: statusCode,
-          text: error
-        };
-        _this4.setState({ responseError: responseError });
-        _this4.setState({
-          isLoading: false
+        _this.validator = new __WEBPACK_IMPORTED_MODULE_4_ree_validate__["a" /* default */]({
+            email: 'required|email',
+            password: 'required|min:6'
         });
-      });
+
+        _this.state = {
+            credentials: {
+                email: '',
+                password: ''
+            },
+            responseError: {
+                isError: false,
+                code: '',
+                text: ''
+            },
+            isLoading: false,
+            errors: _this.validator.errors
+        };
+        _this.handleChange = _this.handleChange.bind(_this);
+        _this.handleSubmit = _this.handleSubmit.bind(_this);
+        return _this;
     }
-  }, {
-    key: 'onSocialClick',
-    value: function onSocialClick(event, data) {
-      window.location.assign('redirect/' + data.service);
-    }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.setState({
-        isLoading: false
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _ref2 = this.props.location.state || { from: { pathname: '/' } },
-          from = _ref2.from;
 
-      var isAuthenticated = this.props.isAuthenticated;
+    _createClass(Page, [{
+        key: 'handleChange',
+        value: function handleChange(event) {
+            var _this2 = this;
+
+            var name = event.target.name;
+            var value = event.target.value;
+            var errors = this.validator.errors;
+            var credentials = this.state.credentials;
+
+            credentials[name] = value;
+
+            this.validator.validate(name, value).then(function () {
+                _this2.setState({ errors: errors, credentials: credentials });
+            });
+        }
+    }, {
+        key: 'handleSubmit',
+        value: function handleSubmit(event) {
+            var _this3 = this;
+
+            event.preventDefault();
+            var credentials = this.state.credentials;
+
+            this.validator.validateAll(credentials).then(function (success) {
+                if (success) {
+                    _this3.setState({
+                        isLoading: true
+                    });
+                    _this3.submit(credentials);
+                }
+            });
+        }
+    }, {
+        key: 'submit',
+        value: function submit(credentials) {
+            var _this4 = this;
+
+            this.props.dispatch(__WEBPACK_IMPORTED_MODULE_5__services__["a" /* default */].login(credentials)).catch(function (_ref) {
+                var error = _ref.error,
+                    statusCode = _ref.statusCode;
+
+                var responseError = {
+                    isError: true,
+                    code: statusCode,
+                    text: error
+                };
+                _this4.setState({ responseError: responseError });
+                _this4.setState({
+                    isLoading: false
+                });
+            });
+        }
+    }, {
+        key: 'onSocialClick',
+        value: function onSocialClick(event, data) {
+            window.location.assign('redirect/' + data.service);
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.setState({
+                isLoading: false
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _ref2 = this.props.location.state || { from: { pathname: '/' } },
+                from = _ref2.from;
+
+            var isAuthenticated = this.props.isAuthenticated;
 
 
-      if (isAuthenticated) {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Redirect */], { to: from });
-      }
-      var errors = this.state.errors;
+            if (isAuthenticated) {
+                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["d" /* Redirect */], { to: from });
+            }
+            var errors = this.state.errors;
 
 
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__common_pageHeader__["a" /* default */], { heading: 'login' }),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["o" /* Segment */],
-          {
-            className: 'page-loader',
-            style: { display: this.state.isLoading ? 'block' : 'none' }
-          },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["c" /* Dimmer */],
-            { active: true, inverted: true },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["k" /* Loader */],
-              { size: 'large' },
-              'Authenticating...'
-            )
-          )
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["g" /* Grid */],
-          { textAlign: 'center', verticalAlign: 'middle', className: 'login-form' },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["g" /* Grid */].Column,
-            { style: { maxWidth: '450px' } },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */],
-              { as: 'h2', color: 'teal', textAlign: 'center' },
-              'Login to your account'
-            ),
-            this.state.responseError.isError && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["m" /* Message */],
-              { negative: true },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["m" /* Message */].Content,
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
                 null,
-                this.state.responseError.text
-              )
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["f" /* Form */],
-              { size: 'large' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["o" /* Segment */],
-                { stacked: true },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["f" /* Form */].Input, {
-                  fluid: true,
-                  icon: 'user',
-                  iconPosition: 'left',
-                  name: 'email',
-                  placeholder: 'E-mail address',
-                  onChange: this.handleChange,
-                  error: errors.has('email')
-                }),
-                errors.has('email') && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */],
-                  { size: 'tiny', className: 'custom-error', color: 'red' },
-                  errors.first('email')
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["f" /* Form */].Input, {
-                  fluid: true,
-                  icon: 'lock',
-                  iconPosition: 'left',
-                  name: 'password',
-                  placeholder: 'Password',
-                  type: 'password',
-                  onChange: this.handleChange,
-                  error: errors.has('password')
-                }),
-                errors.has('password') && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */],
-                  { size: 'tiny', className: 'custom-error', color: 'red' },
-                  errors.first('password')
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__common_pageHeader__["a" /* default */], { heading: 'login' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["o" /* Segment */],
+                    { className: 'page-loader', style: { display: this.state.isLoading ? 'block' : 'none' } },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["c" /* Dimmer */],
+                        { active: true, inverted: true },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["k" /* Loader */],
+                            { size: 'large' },
+                            'Authenticating...'
+                        )
+                    )
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["a" /* Button */],
-                  {
-                    color: 'teal',
-                    fluid: true,
-                    size: 'large',
-                    onClick: this.handleSubmit
-                  },
-                  'Login'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
-                  { to: '/forgot-password', replace: true },
-                  'Forgot your password?'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'ui divider' }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'div',
-                  null,
-                  'Or login with:'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["a" /* Button */],
-                  {
-                    onClick: this.onSocialClick.bind(this),
-                    service: 'facebook',
-                    className: 'ui circular facebook icon button'
-                  },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["i" /* Icon */], { className: 'facebook icon' })
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["a" /* Button */],
-                  {
-                    onClick: this.onSocialClick.bind(this),
-                    service: 'twitter',
-                    className: 'ui circular twitter icon button'
-                  },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["i" /* Icon */], { className: 'twitter icon' })
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["a" /* Button */],
-                  {
-                    onClick: this.onSocialClick.bind(this),
-                    service: 'linkedin',
-                    className: 'ui circular linkedin icon button'
-                  },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["i" /* Icon */], { className: 'linkedin icon' })
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["a" /* Button */],
-                  {
-                    onClick: this.onSocialClick.bind(this),
-                    service: 'google',
-                    className: 'ui circular google plus icon button'
-                  },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["i" /* Icon */], { className: 'google plus icon' })
+                    __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["g" /* Grid */],
+                    {
+                        textAlign: 'center',
+                        verticalAlign: 'middle',
+                        className: 'login-form'
+                    },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["g" /* Grid */].Column,
+                        { style: { maxWidth: '450px' } },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */],
+                            { as: 'h2', color: 'teal', textAlign: 'center' },
+                            'Login to your account'
+                        ),
+                        this.state.responseError.isError && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["m" /* Message */],
+                            { negative: true },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["m" /* Message */].Content,
+                                null,
+                                this.state.responseError.text
+                            )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["f" /* Form */],
+                            { size: 'large' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["o" /* Segment */],
+                                { stacked: true },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["f" /* Form */].Input, {
+                                    fluid: true,
+                                    icon: 'user',
+                                    iconPosition: 'left',
+                                    name: 'email',
+                                    placeholder: 'E-mail address',
+                                    onChange: this.handleChange,
+                                    error: errors.has('email')
+                                }),
+                                errors.has('email') && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */],
+                                    { size: 'tiny', className: 'custom-error', color: 'red' },
+                                    errors.first('email')
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["f" /* Form */].Input, {
+                                    fluid: true,
+                                    icon: 'lock',
+                                    iconPosition: 'left',
+                                    name: 'password',
+                                    placeholder: 'Password',
+                                    type: 'password',
+                                    onChange: this.handleChange,
+                                    error: errors.has('password')
+                                }),
+                                errors.has('password') && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */],
+                                    { size: 'tiny', className: 'custom-error', color: 'red' },
+                                    errors.first('password')
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["a" /* Button */],
+                                    { color: 'teal', fluid: true, size: 'large', onClick: this.handleSubmit },
+                                    'Login'
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
+                                    { to: '/forgot-password', replace: true },
+                                    'Forgot your password?'
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'ui divider' }),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    null,
+                                    'Or login with:'
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["a" /* Button */],
+                                    { onClick: this.onSocialClick.bind(this), service: 'facebook', className: 'ui circular facebook icon button' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["i" /* Icon */], { className: 'facebook icon' })
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["a" /* Button */],
+                                    { onClick: this.onSocialClick.bind(this), service: 'twitter', className: 'ui circular twitter icon button' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["i" /* Icon */], { className: 'twitter icon' })
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["a" /* Button */],
+                                    { onClick: this.onSocialClick.bind(this), service: 'linkedin', className: 'ui circular linkedin icon button' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["i" /* Icon */], { className: 'linkedin icon' })
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["a" /* Button */],
+                                    { onClick: this.onSocialClick.bind(this), service: 'google', className: 'ui circular google plus icon button' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["i" /* Icon */], { className: 'google plus icon' })
+                                )
+                            )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["m" /* Message */],
+                            null,
+                            'New to us? ',
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
+                                { to: '/register', replace: true },
+                                'Register'
+                            )
+                        )
+                    )
                 )
-              )
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["m" /* Message */],
-              null,
-              'New to us?',
-              ' ',
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
-                { to: '/register', replace: true },
-                'Register'
-              )
-            )
-          )
-        )
-      );
-    }
-  }]);
+            );
+        }
+    }]);
 
-  return Page;
+    return Page;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 Page.propTypes = {
-  isAuthenticated: __WEBPACK_IMPORTED_MODULE_3_prop_types___default.a.bool.isRequired,
-  dispatch: __WEBPACK_IMPORTED_MODULE_3_prop_types___default.a.func.isRequired
+    isAuthenticated: __WEBPACK_IMPORTED_MODULE_3_prop_types___default.a.bool.isRequired,
+    dispatch: __WEBPACK_IMPORTED_MODULE_3_prop_types___default.a.func.isRequired
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (Page);
@@ -77927,52 +77906,46 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var Footer = function (_React$Component) {
-  _inherits(Footer, _React$Component);
+    _inherits(Footer, _React$Component);
 
-  function Footer(props) {
-    _classCallCheck(this, Footer);
+    function Footer(props) {
+        _classCallCheck(this, Footer);
 
-    return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
-  }
-
-  _createClass(Footer, [{
-    key: 'render',
-    value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        { className: 'footer' },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["b" /* Container */],
-          null,
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["g" /* Grid */],
-            {
-              columns: 'equal',
-              verticalAlign: 'middle',
-              className: 'foobar',
-              stackable: true
-            },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["g" /* Grid */].Row,
-              null,
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["g" /* Grid */].Column,
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */],
-                  { as: 'h5', inverted: true },
-                  'Zoya @ 2019',
-                  ' '
-                )
-              )
-            )
-          )
-        )
-      );
+        return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
     }
-  }]);
 
-  return Footer;
+    _createClass(Footer, [{
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'footer' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["b" /* Container */],
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["g" /* Grid */],
+                        { columns: 'equal', verticalAlign: 'middle', className: 'foobar', stackable: true },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["g" /* Grid */].Row,
+                            null,
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["g" /* Grid */].Column,
+                                null,
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_1_semantic_ui_react__["h" /* Header */],
+                                    { as: 'h5', inverted: true },
+                                    'Sample footer @ 2017'
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Footer;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (Footer);

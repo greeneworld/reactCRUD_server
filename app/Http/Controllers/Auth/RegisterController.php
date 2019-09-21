@@ -38,16 +38,13 @@ class RegisterController extends Controller
                 "message" => $validator->errors(),
             ], 422);
         }
-        // echo '<script>console.log("Your stuff here")</script>';
+
         $request->merge(['password' => Hash::make($request->password)]);
         try{
-            //  print_r('good');
             User::create($request->all());
-            return response()->json(201);
-            // return response()->json(['message'=>'registered successfully'],200);
+            return response()->json(['status','registered successfully'],200);
         }
         catch(Exception $e){
-            // print_r('bad');
             return response()->json([
                 "error" => "could_not_register",
                 "message" => "Unable to register user"
@@ -55,4 +52,6 @@ class RegisterController extends Controller
         }
 
     }
+
+
 }

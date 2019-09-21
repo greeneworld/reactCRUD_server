@@ -26,6 +26,7 @@ class LoginController extends Controller
     {
         // grab credentials from the request
         $credentials = $request->only('email', 'password');
+
         try {
             // attempt to verify the credentials and create a token for the user
             if (! $token = JWTAuth::attempt($credentials)) {
@@ -52,8 +53,7 @@ class LoginController extends Controller
     }
 
     public function socialLogin($social)
-    {   
-        // return "Hello";
+    {
         if ($social == "facebook" || $social == "google" || $social == "linkedin") {
             return Socialite::driver($social)->stateless()->redirect();
         } else {
@@ -62,17 +62,15 @@ class LoginController extends Controller
     }
 
     public function handleProviderCallback($social)
-    {   
+    {
         if ($social == "facebook" || $social == "google" || $social == "linkedin") {
             $userSocial = Socialite::driver($social)->stateless()->user();
         } else {
             $userSocial = Socialite::driver($social)->user();           
         }
-        $token = $userSocial->token;
-        $email = $userSocial->getEmail();
         
+        $token = $userSocial->token;
         $user = User::firstOrNew(['email' => $userSocial->getEmail()]);
-        $id = $user->id;
 
         if (!$user->id) {
             $user->fill(["name" => $userSocial->getName(),"password"=>bcrypt(str_random(6))]);
