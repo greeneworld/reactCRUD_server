@@ -1,4 +1,5 @@
 <?php
+
 // header('Access-Control-Allow-Origin: *,*');
 // header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization");
 // header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");*/
@@ -24,19 +25,31 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['prefix' => 'password'],function() {
-	Route::post('/email', 'Auth\ForgotPasswordController@getResetToken');
-	Route::post('/reset', 'Auth\ResetPasswordController@reset');
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
 });
 
 Route::group(['prefix'=> 'auth'],function(){
-    Route::post('/register','Auth\RegisterController@register');
-    Route::post("/login",'Auth\LoginController@login');
-    Route::post('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|');
+    Route::post('/login', 'ApiController@login');
+    Route::post('/register', 'ApiController@register');
+    Route::post('/login/{social}/callback','ApiController@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|');
 });
 
-Route::middleware(['jwt_auth'])->group(function(){
-   Route::get('/hello',function(){
-       return "Cool dude";
-   });
+Route::group(['middleware' => 'auth.jwt'], function () {
+    Route::get('logout', 'ApiController@logout');
+
+    Route::get('user', 'ApiController@getAuthUser');
+    Route::post('changePassword', 'ApiController@changePassword');
+
+    Route::get('categories', 'CategoryController@index');
+    Route::get('categories/{id}', 'CategoryController@show');
+    Route::post('categories', 'CategoryController@store');
+    Route::put('categories/{id}', 'CategoryController@update');
+    Route::delete('categories/{id}', 'CategoryController@destroy');
+
+    Route::get('products', 'ProductController@index');
+    Route::get('products/{id}', 'ProductController@show');
+    Route::post('products', 'ProductController@store');
+    Route::put('products/{id}', 'ProductController@update');
+    Route::delete('products/{id}', 'ProductController@destroy');
 });
